@@ -12,6 +12,7 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool fire1,fire2;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -45,6 +46,14 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
+
+		public void OnFire1(InputValue value){
+      Fire1Input(value.isPressed);
+    }
+
+    public void OnFire2(InputValue value) {
+      Fire2Input(value.isPressed);
+    }
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
@@ -69,6 +78,15 @@ namespace StarterAssets
 		{
 			sprint = newSprintState;
 		}
+
+		public void Fire1Input(bool newFireState){
+      fire1 = newFireState;
+    }
+
+    public void Fire2Input(bool newFireState) {
+      fire2 = newFireState;
+
+    }
 
 #if !UNITY_IOS || !UNITY_ANDROID
 
