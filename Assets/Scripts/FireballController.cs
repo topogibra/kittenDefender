@@ -18,7 +18,7 @@ public class FireballController : MonoBehaviour {
     }
   }
 
-  private void OnCollisionStay(Collision other) {
+  private void OnCollisionEnter(Collision other) {
     Target target = other.gameObject.GetComponent<Target>();
     if (target != null) {
       if(!target.friendly) target.inflictDamage(damage);

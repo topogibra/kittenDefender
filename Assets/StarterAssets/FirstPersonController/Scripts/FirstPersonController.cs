@@ -208,13 +208,14 @@ namespace StarterAssets {
     }
 
     void Shoot() {
-      if (_input.fire1) {
+      if (_input.fire1 || _input.fire2) {
         Camera camera = _mainCamera.GetComponent("Camera") as Camera;
         Ray ray = camera.ViewportPointToRay(new Vector3(0.499f, 0.5f, 0)); // midle of the screen
         RaycastHit hit;
         Physics.Raycast(ray, out hit, weapon.range);
-        weapon.Shoot(hit.transform, ray.direction);
+        weapon.Shoot(hit.transform, ray.direction, _input.fire2);
         _input.fire1 = false;
+        _input.fire2 = false;
       }
     }
 

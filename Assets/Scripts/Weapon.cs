@@ -9,9 +9,12 @@ public class Weapon : MonoBehaviour {
   public float shootSpeed = 200f;
 
   public Vector3 _attackPosition;
-  public GameObject projectile;
+  public GameObject primaryProjectile;
 
-  internal void Shoot(Transform hit, Vector3 rayDirection) {
+  public GameObject secondProjectile;
+
+  internal void Shoot(Transform hit, Vector3 rayDirection, bool secondProj) {
+    GameObject projectile = secondProj ? secondProjectile : primaryProjectile;
     if (projectile == null) {
       Target target = hit.transform.GetComponent("Target") as Target;
       if (target != null) {
@@ -22,8 +25,16 @@ public class Weapon : MonoBehaviour {
 
       // Instantiate bullet
       GameObject currentBullet = Instantiate(projectile, attackPosition, Quaternion.identity);
-      FireballController fbC = currentBullet.GetComponent("FireballController") as FireballController;
-      fbC.damage = damage;
+
+      if (secondProj) {
+        TeleballController tbC = currentBullet.GetComponent("TeleballController") as TeleballController;
+
+      } else {
+
+        FireballController fbC = currentBullet.GetComponent("FireballController") as FireballController;
+        fbC.damage = damage;
+
+      }
 
       // Add direction and forces to bullet
       Rigidbody rigidBody = currentBullet.GetComponent<Rigidbody>();

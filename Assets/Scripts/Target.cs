@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Target : MonoBehaviour {
 
@@ -7,15 +8,16 @@ public class Target : MonoBehaviour {
   public float health = 300f;
   public bool friendly = false;
   public UnityEvent<float> updateHealthBar,updateMaxHealth;
-
   public UnityEvent dieCallBack;
+
+  public Image markerImage;
 
 
   private void Start() {
     if (updateMaxHealth != null) updateMaxHealth.Invoke(maxHealth);
     health = maxHealth;
     if (updateHealthBar != null) updateHealthBar.Invoke(health);
-
+    setMarker(false);
   }
 
   public float inflictDamage(float damage) {
@@ -28,6 +30,10 @@ public class Target : MonoBehaviour {
     if (health <= 0) {
       die();
     }
+  }
+
+  public void setMarker (bool marked){
+    if(markerImage != null) markerImage.enabled = marked;
   }
 
   private void die(){

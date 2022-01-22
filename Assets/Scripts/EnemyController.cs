@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyController : MonoBehaviour {
 
@@ -25,7 +26,7 @@ public class EnemyController : MonoBehaviour {
   private SphereCollider attackCollider;
   internal bool showCanvas;
 
-  public Canvas canvas { get; private set; }
+  public GameObject canvas;
   public bool canMove { get; private set; }
   public float lastTimeSinceAttack { get; private set; }
   private float lastTimeSinceCanvas = 0.0f;
@@ -44,8 +45,6 @@ public class EnemyController : MonoBehaviour {
       kitty = GameObject.FindGameObjectsWithTag("Kitty")[0];
     }
 
-    canvas = gameObject.GetComponentInChildren<Canvas>();
-
     canMove = true;
     showCanvas = false;
     attackCollider = gameObject.GetComponent<SphereCollider>();
@@ -63,7 +62,7 @@ public class EnemyController : MonoBehaviour {
         lastTimeSinceCanvas = 0;
       }
     }
-    canvas.enabled = showCanvas;
+    canvas.SetActive(showCanvas);
     move(target);
     attack(target);
   }
