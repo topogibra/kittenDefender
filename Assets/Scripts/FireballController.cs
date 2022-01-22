@@ -8,23 +8,26 @@ public class FireballController : MonoBehaviour {
 
   public Vector3 velocity;
 
-  // Start is called before the first frame update
-  void Start() {
+  public float timeToLive = 2.5f;
 
-  }
-
-  // Update is called once per frame
+  private float timePassed = 0.0f;
   void Update() {
-    // transform.position += velocity;
+    timePassed += Time.deltaTime;
+    if(timePassed >= timeToLive){
+      Destroy(gameObject);
+    }
   }
 
   private void OnCollisionEnter(Collision other) {
+    Debug.Log(other);
     Target target = other.gameObject.GetComponent<Target>();
     if (target != null) {
       target.inflictDamage(damage);
     }
-    other.rigidbody.velocity = Vector3.zero;
-    other.rigidbody.angularVelocity = Vector3.zero;
+    if (other.rigidbody != null) {
+      other.rigidbody.velocity = Vector3.zero;
+      other.rigidbody.angularVelocity = Vector3.zero;
+    }
     Destroy(gameObject);
   }
 }

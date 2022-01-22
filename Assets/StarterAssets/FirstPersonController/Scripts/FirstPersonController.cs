@@ -56,6 +56,7 @@ namespace StarterAssets {
     public Weapon weapon;
     [Tooltip("Weapon GameObject")]
 
+
     // cinemachine
     private float _cinemachineTargetPitch;
 
@@ -212,7 +213,7 @@ namespace StarterAssets {
         Ray ray = camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // midle of the screen
         RaycastHit hit;
         Physics.Raycast(ray, out hit, weapon.range);
-        weapon.Shoot(hit.transform,ray.direction);
+        weapon.Shoot(hit.transform, ray.direction);
         _input.fire1 = false;
       }
     }

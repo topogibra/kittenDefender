@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,9 +24,13 @@ public class EnemyController : MonoBehaviour {
   public GameObject kitty;
 
   private SphereCollider attackCollider;
+  internal bool showCanvas;
 
+  public Canvas canvas { get; private set; }
   public bool canMove { get; private set; }
   public float lastTimeSinceAttack { get; private set; }
+  private float lastTimeSinceCanvas = 0.0f;
+  public float timeForCanvas = 4f;
 
 
 
@@ -40,9 +45,11 @@ public class EnemyController : MonoBehaviour {
       kitty = GameObject.FindGameObjectsWithTag("Kitty")[0];
     }
 
+    canvas = gameObject.GetComponentInChildren<Canvas>();
 
     canMove = true;
     battle_state = 0;
+    showCanvas = false;
 
     attackCollider = gameObject.GetComponent<SphereCollider>();
   }
@@ -51,15 +58,28 @@ public class EnemyController : MonoBehaviour {
   // Update is called once per frame
   void Update() {
     GameObject target = closer();
+    rotateCanvas();
+    if (showCanvas) {
+      lastTimeSinceCanvas += Time.deltaTime;
+      if (lastTimeSinceCanvas >= timeForCanvas) {
+        showCanvas = false;
+        lastTimeSinceCanvas = 0;
+      }
+    }
+    canvas.enabled = showCanvas;
     // move(target);
     // attack(target);
+    // showCanvas = false;
+  }
+
+  void rotateCanvas() {
+    canvas.transform.rotation = player.transform.rotation;
   }
 
   private GameObject closer() {
     bool isPlayerCloser = Vector3.Distance(player.transform.position, transform.position) < Vector3.Distance(kitty.transform.position, transform.position);
     return isPlayerCloser ? player : kitty;
   }
-
 
   private void move(GameObject targetObj) {
     Rigidbody rigidbody = gameObject.GetComponent("Rigidbody") as Rigidbody;
@@ -83,6 +103,13 @@ public class EnemyController : MonoBehaviour {
         target.GetComponent<Target>().inflictDamage(damage);
       }
       canAttack = false;
+    }
+  }
+
+  private void OnCollisionEnter(Collision other) {
+    if (other.collider.GetType() == this.attackCollider.GetType()) {
+      if (other.transform.GetComponent<FireballController>() != null)
+        showCanvas = true;
     }
   }
 }

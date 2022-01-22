@@ -7,6 +7,7 @@ public class Target : MonoBehaviour {
   public float health = 300f;
   public bool friendly = false;
   public UnityEvent<float> updateHealthBar,updateMaxHealth;
+  
 
   private void Start() {
     if (updateMaxHealth != null) updateMaxHealth.Invoke(maxHealth);
