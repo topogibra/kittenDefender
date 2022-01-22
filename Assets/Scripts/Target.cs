@@ -7,7 +7,9 @@ public class Target : MonoBehaviour {
   public float health = 300f;
   public bool friendly = false;
   public UnityEvent<float> updateHealthBar,updateMaxHealth;
-  
+
+  public UnityEvent dieCallBack;
+
 
   private void Start() {
     if (updateMaxHealth != null) updateMaxHealth.Invoke(maxHealth);
@@ -29,6 +31,7 @@ public class Target : MonoBehaviour {
   }
 
   private void die(){
+    dieCallBack.Invoke();
     Destroy(gameObject);
   }
 

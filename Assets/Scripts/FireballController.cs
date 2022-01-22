@@ -18,11 +18,10 @@ public class FireballController : MonoBehaviour {
     }
   }
 
-  private void OnCollisionEnter(Collision other) {
-    Debug.Log(other);
+  private void OnCollisionStay(Collision other) {
     Target target = other.gameObject.GetComponent<Target>();
     if (target != null) {
-      target.inflictDamage(damage);
+      if(!target.friendly) target.inflictDamage(damage);
     }
     if (other.rigidbody != null) {
       other.rigidbody.velocity = Vector3.zero;

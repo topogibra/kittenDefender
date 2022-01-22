@@ -7,7 +7,6 @@ public class EnemyController : MonoBehaviour {
 
   private Animator anim;
   private CharacterController controller;
-  private int battle_state = 0;
   public float speed = 6.0f;
   public float turnSpeed = 60.0f;
 
@@ -48,9 +47,7 @@ public class EnemyController : MonoBehaviour {
     canvas = gameObject.GetComponentInChildren<Canvas>();
 
     canMove = true;
-    battle_state = 0;
     showCanvas = false;
-
     attackCollider = gameObject.GetComponent<SphereCollider>();
   }
   // Start is called before the first frame update
@@ -67,9 +64,8 @@ public class EnemyController : MonoBehaviour {
       }
     }
     canvas.enabled = showCanvas;
-    // move(target);
-    // attack(target);
-    // showCanvas = false;
+    move(target);
+    attack(target);
   }
 
   void rotateCanvas() {

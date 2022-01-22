@@ -12,8 +12,8 @@ public class Weapon : MonoBehaviour {
   public GameObject projectile;
 
   internal void Shoot(Transform hit, Vector3 rayDirection) {
-    Target target = hit.transform.GetComponent("Target") as Target;
     if (projectile == null) {
+      Target target = hit.transform.GetComponent("Target") as Target;
       if (target != null) {
         if (!target.friendly) target.inflictDamage(this.damage);
       }

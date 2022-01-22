@@ -210,7 +210,7 @@ namespace StarterAssets {
     void Shoot() {
       if (_input.fire1) {
         Camera camera = _mainCamera.GetComponent("Camera") as Camera;
-        Ray ray = camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // midle of the screen
+        Ray ray = camera.ViewportPointToRay(new Vector3(0.499f, 0.5f, 0)); // midle of the screen
         RaycastHit hit;
         Physics.Raycast(ray, out hit, weapon.range);
         weapon.Shoot(hit.transform, ray.direction);
