@@ -27,6 +27,8 @@ public class EnemyController : MonoBehaviour {
   public bool canMove { get; private set; }
   public float lastTimeSinceAttack { get; private set; }
 
+
+
   // Use this for initialization
   void Start() {
     anim = GetComponent<Animator>();
@@ -38,6 +40,7 @@ public class EnemyController : MonoBehaviour {
       kitty = GameObject.FindGameObjectsWithTag("Kitty")[0];
     }
 
+
     canMove = true;
     battle_state = 0;
 
@@ -48,8 +51,8 @@ public class EnemyController : MonoBehaviour {
   // Update is called once per frame
   void Update() {
     GameObject target = closer();
-    move(target);
-    attack(target);
+    // move(target);
+    // attack(target);
   }
 
   private GameObject closer() {
@@ -59,11 +62,14 @@ public class EnemyController : MonoBehaviour {
 
 
   private void move(GameObject targetObj) {
+    Rigidbody rigidbody = gameObject.GetComponent("Rigidbody") as Rigidbody;
     Vector3 targetDir = targetObj.transform.position - transform.position;
     Quaternion rotation = Quaternion.LookRotation(targetDir);
-    transform.rotation = Quaternion.Lerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);
+    // transform.rotation = Quaternion.Lerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);
+    rigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, rotation, turnSpeed * Time.deltaTime));
     if (Vector3.Distance(targetObj.transform.position, transform.position) >= 3)
-      transform.position = Vector3.MoveTowards(transform.position, targetObj.transform.position, speed * Time.deltaTime);
+      //   transform.position = Vector3.MoveTowards(transform.position, targetObj.transform.position, speed * Time.deltaTime);
+      rigidbody.MovePosition(Vector3.MoveTowards(rigidbody.position, targetObj.transform.position, speed * Time.deltaTime));
     else {
       canAttack = true;
     }
@@ -72,14 +78,11 @@ public class EnemyController : MonoBehaviour {
   private void attack(GameObject target) {
     lastTimeSinceAttack += Time.deltaTime;
     if (canAttack) {
-      Debug.Log(lastTimeSinceAttack);
       if (lastTimeSinceAttack >= secondsBtwAttacks) {
         lastTimeSinceAttack = 0;
         target.GetComponent<Target>().inflictDamage(damage);
       }
+      canAttack = false;
     }
-
   }
-
-
 }
