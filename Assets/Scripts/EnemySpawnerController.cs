@@ -7,7 +7,14 @@ public class EnemySpawnerController : MonoBehaviour
 {
   public GameObject enemyPrefab;
 
+  public bool stopTurn = false;
+
+  public int waves = 0;
+
   internal ArrayList enemys = new ArrayList();
+
+
+
 
   private void spawn(){
     int i = 0;
@@ -24,8 +31,9 @@ public class EnemySpawnerController : MonoBehaviour
   }
 
   private void Update() {
-    if(enemys.Count == 0){
+    if(enemys.Count == 0 && waves > 0){
       spawn();
+      waves--;
     }
   }
 

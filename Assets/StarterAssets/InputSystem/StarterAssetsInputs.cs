@@ -21,10 +21,12 @@ namespace StarterAssets
 		[Header("Mouse Cursor Settings")]
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
+
+    public bool interactState = false;
 #endif
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
-		public void OnMove(InputValue value)
+    public void OnMove(InputValue value)
 		{
 			MoveInput(value.Get<Vector2>());
 		}
@@ -53,6 +55,10 @@ namespace StarterAssets
 
     public void OnFire2(InputValue value) {
       Fire2Input(value.isPressed);
+    }
+
+		public void OnInteractButton(InputValue value){
+      InteractiveButtonInput(value.isPressed);
     }
 #else
 	// old input sys if we do decide to have it (most likely wont)...
@@ -85,6 +91,11 @@ namespace StarterAssets
 
     public void Fire2Input(bool newFireState) {
       fire2 = newFireState;
+
+    }
+
+    public void InteractiveButtonInput(bool newInteractState) {
+      interactState = newInteractState;
 
     }
 

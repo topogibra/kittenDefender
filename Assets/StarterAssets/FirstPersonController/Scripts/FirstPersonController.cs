@@ -76,6 +76,11 @@ namespace StarterAssets {
 
     private const float _threshold = 0.01f;
 
+    public StarterAssetsInputs getInput(){
+      return _input;
+    }
+
+
     private void Awake() {
       // get a reference to our main camera
       if (_mainCamera == null) {
