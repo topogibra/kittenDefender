@@ -7,8 +7,10 @@ public class Target : MonoBehaviour {
   public float maxHealth = 300f;
   public float health = 300f;
   public bool friendly = false;
-  public UnityEvent<float> updateHealthBar,updateMaxHealth;
+  public UnityEvent<float> updateHealthBar, updateMaxHealth;
   public UnityEvent dieCallBack;
+
+  public bool teleportable = true;
 
   public Image markerImage;
 
@@ -22,7 +24,7 @@ public class Target : MonoBehaviour {
 
   public float inflictDamage(float damage) {
     health -= damage;
-    if(updateHealthBar != null) updateHealthBar.Invoke(health);
+    if (updateHealthBar != null) updateHealthBar.Invoke(health);
     return health;
   }
 
@@ -32,11 +34,11 @@ public class Target : MonoBehaviour {
     }
   }
 
-  public void setMarker (bool marked){
-    if(markerImage != null) markerImage.enabled = marked;
+  public void setMarker(bool marked) {
+    if (markerImage != null) markerImage.enabled = marked;
   }
 
-  private void die(){
+  private void die() {
     dieCallBack.Invoke();
     Destroy(gameObject);
   }

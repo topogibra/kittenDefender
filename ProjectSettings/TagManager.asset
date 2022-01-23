@@ -8,6 +8,8 @@ TagManager:
   - Weapon
   - Kitty
   - PlayerWithCamera
+  - CombatUI
+  - TutorialUI
   layers:
   - Default
   - TransparentFX

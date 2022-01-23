@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: Tutorial
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: 5c043949-21a6-4b74-937e-42e80611b234
+    PortName: Next
+    TargetNodeGUID: f1efb2e6-8d04-48d8-b155-e107eb2c5d00
+  - BaseNodeGUID: f1efb2e6-8d04-48d8-b155-e107eb2c5d00
+    PortName: Continue
+    TargetNodeGUID: 97952cfb-48e0-4f5d-86b8-82b645e8fafc
+  - BaseNodeGUID: 97952cfb-48e0-4f5d-86b8-82b645e8fafc
+    PortName: Continue
+    TargetNodeGUID: a9bd85af-cab3-49b5-8b8d-670090830652
+  - BaseNodeGUID: a9bd85af-cab3-49b5-8b8d-670090830652
+    PortName: Continue
+    TargetNodeGUID: f403a5f5-5dee-4210-b4b4-89313f24f5e2
+  DialogueNodeData:
+  - NodeGUID: f1efb2e6-8d04-48d8-b155-e107eb2c5d00
+    DialogueText: Hello! Welcome to Kitty Defenders. You are a wizard trying to defend
+      a kitty from evil puppy warriors
+    Position: {x: 215, y: 25}
+  - NodeGUID: 97952cfb-48e0-4f5d-86b8-82b645e8fafc
+    DialogueText: Your wand can shoot Fireballs and Teleballs. To shoot a fireball
+      press the Left Mouse.
+    Position: {x: 215, y: 179}
+  - NodeGUID: a9bd85af-cab3-49b5-8b8d-670090830652
+    DialogueText: To shoot a Teleball use the Right Mouse. Shooting a teleball will
+      teleport you to the location
+    Position: {x: 215, y: 315}
+  - NodeGUID: f403a5f5-5dee-4210-b4b4-89313f24f5e2
+    DialogueText: A Teleball can also teleport an enemy. Shoot a Teleball at an enemy
+      to mark it with a yellow marker. Then shoot at the walls or floor to teleport
+      it. To remove the marker shoot against the marked enemy.
+    Position: {x: 215, y: 454}
+  ExposedProperties: []
+  CommentBlockData: []
