@@ -14,6 +14,8 @@ public class Target : MonoBehaviour {
 
   public Image markerImage;
 
+  public UnityEvent getHitAnimation, dieAnimation;
+
 
   private void Start() {
     if (updateMaxHealth != null) updateMaxHealth.Invoke(maxHealth);
@@ -24,7 +26,12 @@ public class Target : MonoBehaviour {
 
   public float inflictDamage(float damage) {
     health -= damage;
-    if (updateHealthBar != null) updateHealthBar.Invoke(health);
+    if (updateHealthBar != null) {
+      updateHealthBar.Invoke(health);
+      dieAnimation.Invoke();
+    } else {
+      getHitAnimation.Invoke();
+    }
     return health;
   }
 

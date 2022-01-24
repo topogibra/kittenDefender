@@ -82,10 +82,12 @@ public class EnemyController : MonoBehaviour {
     Quaternion rotation = Quaternion.LookRotation(targetDir);
     // transform.rotation = Quaternion.Lerp(transform.rotation, rotation, turnSpeed * Time.deltaTime);
     rigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, rotation, turnSpeed * Time.deltaTime));
-    if (Vector3.Distance(targetObj.transform.position, transform.position) >= 3)
+    if (Vector3.Distance(targetObj.transform.position, transform.position) >= 3) {
+
       //   transform.position = Vector3.MoveTowards(transform.position, targetObj.transform.position, speed * Time.deltaTime);
       rigidbody.MovePosition(Vector3.MoveTowards(rigidbody.position, targetObj.transform.position, speed * Time.deltaTime));
-    else {
+      if(!canAttack) anim.Play("RunForwardBattle");
+    } else {
       canAttack = true;
     }
   }
@@ -96,6 +98,7 @@ public class EnemyController : MonoBehaviour {
       if (lastTimeSinceAttack >= secondsBtwAttacks) {
         lastTimeSinceAttack = 0;
         target.GetComponent<Target>().inflictDamage(damage);
+        anim.Play("Attack01");
       }
       canAttack = false;
     }
@@ -106,5 +109,9 @@ public class EnemyController : MonoBehaviour {
       if (other.transform.GetComponent<FireballController>() != null)
         showCanvas = true;
     }
+  }
+
+  public void getHit(){
+    anim.Play("GetHit");
   }
 }

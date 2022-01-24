@@ -134,25 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &150432737 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6168495611826457586, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
-  m_PrefabInstance: {fileID: 6168495611693735955}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &150432739
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 150432737}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.2
-  m_Direction: 2
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!4 &412576263 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5126527961139664760, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
@@ -235,6 +216,7 @@ MonoBehaviour:
   dieCallBack:
     m_PersistentCalls:
       m_Calls: []
+  teleportable: 1
   markerImage: {fileID: 0}
 --- !u!1 &722996478
 GameObject:
@@ -374,6 +356,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1947377826}
     m_Modifications:
+    - target: {fileID: 6271029864091072873, guid: 15cb0cec5203c4b41b2744868c47a781, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271029864091072873, guid: 15cb0cec5203c4b41b2744868c47a781, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6271029864100448981, guid: 15cb0cec5203c4b41b2744868c47a781, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -571,7 +561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 6271029864100448981, guid: 15cb0cec5203c4b41b2744868c47a781, type: 3}
   stopTurn: 0
-  waves: 0
+  waves: 1
 --- !u!1 &1318453146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,90 +1361,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1947377826}
     m_Modifications:
-    - target: {fileID: 6168495611826457585, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
-      propertyPath: m_Center.z
-      value: -0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168495611826457585, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6168495611826457586, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
       propertyPath: m_Name
       value: Kitty
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168495611826457591, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
-      propertyPath: health
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168495611826457591, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
-      propertyPath: updateHealthBar.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168495611826457591, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
-      propertyPath: updateMaxHealth.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168495611826457591, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
-      propertyPath: updateHealthBar.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168495611826457591, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
-      propertyPath: updateMaxHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6168495611826457591, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
       propertyPath: updateHealthBar.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 74670134}
     - target: {fileID: 6168495611826457591, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
-      propertyPath: updateHealthBar.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 74670134}
-    - target: {fileID: 6168495611826457591, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
       propertyPath: updateMaxHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 74670134}
-    - target: {fileID: 6168495611826457591, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
-      propertyPath: updateHealthBar.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168495611826457591, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
-      propertyPath: updateHealthBar.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168495611826457591, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
-      propertyPath: updateMaxHealth.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168495611826457591, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
-      propertyPath: updateHealthBar.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_value
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168495611826457591, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
-      propertyPath: updateHealthBar.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: set_maxValue
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168495611826457591, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
-      propertyPath: updateMaxHealth.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_maxValue
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168495611826457591, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
-      propertyPath: updateHealthBar.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.UI.Slider, UnityEngine.UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168495611826457591, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
-      propertyPath: updateMaxHealth.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.UI.Slider, UnityEngine.UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168495611826457591, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
-      propertyPath: updateHealthBar.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168495611826457591, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
-      propertyPath: updateMaxHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 6168495613150101634, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1499,8 +1417,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6168495611826457585, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 364e498928847f24db37f48bdf0dd785, type: 3}
 --- !u!1001 &6237388201176071261
 PrefabInstance:

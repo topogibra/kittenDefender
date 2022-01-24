@@ -38,7 +38,7 @@ public class TeleballController : MonoBehaviour {
       targetTele = null;
     } else {
       Target target = targetTele.GetComponent<Target>();
-      if(target != null){
+      if (target != null) {
         target.setMarker(false);
       }
       targetTele.transform.position = location;
@@ -51,7 +51,10 @@ public class TeleballController : MonoBehaviour {
     Target target = other.gameObject.GetComponent<Target>();
     Vector3 point = other.GetContact(0).point;
     if (target != null) { // did it hit an entity?
-      if (!target.teleportable) return;
+      if (!target.teleportable) {
+        Destroy(gameObject);
+        return;
+      }
       if (targetTele == null) { // select entity
         targetTele = other.gameObject;
         target.setMarker(true);
