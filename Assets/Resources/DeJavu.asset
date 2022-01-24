@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b3fd9154634ebdb8c8a48960b9a16a, type: 3}
+  m_Name: DeJavu
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: 67f5952b-82d2-48d2-8582-4edcbcdc7ed5
+    PortName: Next
+    TargetNodeGUID: 5ca669a4-0d6a-4b85-bc29-9c9e111cc11b
+  - BaseNodeGUID: 5ca669a4-0d6a-4b85-bc29-9c9e111cc11b
+    PortName: Small
+    TargetNodeGUID: c9b92015-de43-4d63-aed2-ee830e9bb183
+  - BaseNodeGUID: 5ca669a4-0d6a-4b85-bc29-9c9e111cc11b
+    PortName: Medium
+    TargetNodeGUID: 39e638e6-d216-4aa3-9505-e36f94861f2e
+  - BaseNodeGUID: 5ca669a4-0d6a-4b85-bc29-9c9e111cc11b
+    PortName: Big
+    TargetNodeGUID: 6511ad05-bf41-423e-8ba8-bdd4bd168ec7
+  - BaseNodeGUID: c9b92015-de43-4d63-aed2-ee830e9bb183
+    PortName: Health
+    TargetNodeGUID: 0e02fda7-f502-4bde-9f36-4d6abddf645b
+  - BaseNodeGUID: c9b92015-de43-4d63-aed2-ee830e9bb183
+    PortName: Attack
+    TargetNodeGUID: 17560a6f-75bf-4e0a-a01e-fadd8f7283b4
+  - BaseNodeGUID: c9b92015-de43-4d63-aed2-ee830e9bb183
+    PortName: Speed
+    TargetNodeGUID: f58d4291-e7ad-4409-9433-1bdb0745793f
+  - BaseNodeGUID: 6511ad05-bf41-423e-8ba8-bdd4bd168ec7
+    PortName: Health
+    TargetNodeGUID: 0e02fda7-f502-4bde-9f36-4d6abddf645b
+  - BaseNodeGUID: 6511ad05-bf41-423e-8ba8-bdd4bd168ec7
+    PortName: Attack
+    TargetNodeGUID: 17560a6f-75bf-4e0a-a01e-fadd8f7283b4
+  - BaseNodeGUID: 6511ad05-bf41-423e-8ba8-bdd4bd168ec7
+    PortName: Speed
+    TargetNodeGUID: f58d4291-e7ad-4409-9433-1bdb0745793f
+  - BaseNodeGUID: 0e02fda7-f502-4bde-9f36-4d6abddf645b
+    PortName: Continue
+    TargetNodeGUID: 8478d74f-7b73-41e1-8566-d4b41e551a7a
+  - BaseNodeGUID: f58d4291-e7ad-4409-9433-1bdb0745793f
+    PortName: Continue
+    TargetNodeGUID: 8478d74f-7b73-41e1-8566-d4b41e551a7a
+  - BaseNodeGUID: 17560a6f-75bf-4e0a-a01e-fadd8f7283b4
+    PortName: Continue
+    TargetNodeGUID: 8478d74f-7b73-41e1-8566-d4b41e551a7a
+  - BaseNodeGUID: 39e638e6-d216-4aa3-9505-e36f94861f2e
+    PortName: Health
+    TargetNodeGUID: 0e02fda7-f502-4bde-9f36-4d6abddf645b
+  - BaseNodeGUID: 39e638e6-d216-4aa3-9505-e36f94861f2e
+    PortName: Attack
+    TargetNodeGUID: 17560a6f-75bf-4e0a-a01e-fadd8f7283b4
+  - BaseNodeGUID: 39e638e6-d216-4aa3-9505-e36f94861f2e
+    PortName: Speed
+    TargetNodeGUID: f58d4291-e7ad-4409-9433-1bdb0745793f
+  DialogueNodeData:
+  - NodeGUID: 5ca669a4-0d6a-4b85-bc29-9c9e111cc11b
+    DialogueText: You get this weird feeling of Dejavu. The dog warriors are at the
+      gate. The magical cat has blessed you with a...
+    Position: {x: 360, y: 131}
+  - NodeGUID: c9b92015-de43-4d63-aed2-ee830e9bb183
+    DialogueText: ... small gift of ...
+    Position: {x: 1172, y: -144}
+  - NodeGUID: 6511ad05-bf41-423e-8ba8-bdd4bd168ec7
+    DialogueText: ... big gift of ...
+    Position: {x: 1172, y: 247}
+  - NodeGUID: 0e02fda7-f502-4bde-9f36-4d6abddf645b
+    DialogueText: Health increased by
+    Position: {x: 1501, y: -144}
+  - NodeGUID: f58d4291-e7ad-4409-9433-1bdb0745793f
+    DialogueText: Speed increased by
+    Position: {x: 1502, y: 247}
+  - NodeGUID: 17560a6f-75bf-4e0a-a01e-fadd8f7283b4
+    DialogueText: Attack increased by
+    Position: {x: 1501, y: 82}
+  - NodeGUID: 39e638e6-d216-4aa3-9505-e36f94861f2e
+    DialogueText: ... gift of ...
+    Position: {x: 1172, y: 72}
+  - NodeGUID: 8478d74f-7b73-41e1-8566-d4b41e551a7a
+    DialogueText: The spell is too strong. To maintain balance in the world, your
+      enemies have also increased their stats by the same amount
+    Position: {x: 1918, y: 62}
+  ExposedProperties: []
+  CommentBlockData: []

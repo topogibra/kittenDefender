@@ -25,11 +25,12 @@ public class TutorialController : MonoBehaviour {
 
   // Update is called once per frame
   void Update() {
-    if(Inputs.interactState){
-      if(currentDialogue.Next.Count == 0){
+    if (Inputs.interactState) {
+      if (currentDialogue.Next.Count == 0) {
         _combatUI.SetActive(true);
+        this.enabled = false;
         gameObject.SetActive(false);
-      } else{
+      } else {
         currentDialogue = currentDialogue.Next[0].Target;
         text.text = currentDialogue.DialogueText;
       }

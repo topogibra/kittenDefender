@@ -31,9 +31,6 @@ public class EnemyController : MonoBehaviour {
   public float lastTimeSinceAttack { get; private set; }
   private float lastTimeSinceCanvas = 0.0f;
   public float timeForCanvas = 4f;
-
-
-
   // Use this for initialization
   void Start() {
     anim = GetComponent<Animator>();

@@ -14,7 +14,10 @@ namespace StarterAssets
 		public bool sprint;
 		public bool fire1,fire2;
 
-		[Header("Movement Settings")]
+		[Header("Dialogue Options")]
+    public bool dialogue1, dialogue2, dialogue3;
+
+    [Header("Movement Settings")]
 		public bool analogMovement;
 
 #if !UNITY_IOS || !UNITY_ANDROID
@@ -60,6 +63,19 @@ namespace StarterAssets
 		public void OnInteractButton(InputValue value){
       InteractiveButtonInput(value.isPressed);
     }
+
+    public void OnDialogue1(InputValue value) {
+      Dialogue1Input(value.isPressed);
+    }
+
+    public void OnDialogue2(InputValue value) {
+      Dialogue2Input(value.isPressed);
+    }
+
+    public void OnDialogue3(InputValue value) {
+      Dialogue3Input(value.isPressed);
+    }
+		
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
@@ -97,6 +113,20 @@ namespace StarterAssets
     public void InteractiveButtonInput(bool newInteractState) {
       interactState = newInteractState;
 
+    }
+
+		public void Dialogue1Input(bool newDialogue1State){
+      dialogue1 = newDialogue1State;
+    }
+
+
+    public void Dialogue2Input(bool newDialogue2State) {
+      dialogue2 = newDialogue2State;
+    }
+
+
+    public void Dialogue3Input(bool newDialogue3State) {
+      dialogue3 = newDialogue3State;
     }
 
 #if !UNITY_IOS || !UNITY_ANDROID

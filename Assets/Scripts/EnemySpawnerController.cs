@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,7 @@ public class EnemySpawnerController : MonoBehaviour
 
   internal ArrayList enemys = new ArrayList();
 
-
+  public DejavuController dejavuController;
 
 
   private void spawn(){
@@ -37,4 +38,9 @@ public class EnemySpawnerController : MonoBehaviour
     }
   }
 
+  internal void applyBuffs(float buffMultiplier, int buffType, bool applyToEnemies) {
+    Debug.Log("Buff mult" + buffMultiplier);
+    Debug.Log("Buff type" + buffType);
+    Debug.Log("Apply enemies" + applyToEnemies);
+  }
 }

@@ -57,6 +57,7 @@ namespace StarterAssets {
     [Tooltip("Weapon GameObject")]
 
 
+
     // cinemachine
     private float _cinemachineTargetPitch;
 

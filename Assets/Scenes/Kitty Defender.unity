@@ -218,6 +218,12 @@ MonoBehaviour:
       m_Calls: []
   teleportable: 1
   markerImage: {fileID: 0}
+  getHitAnimation:
+    m_PersistentCalls:
+      m_Calls: []
+  dieAnimation:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &722996478
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,6 +355,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 898735528}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &900537950 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7094977340588366727, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
+  m_PrefabInstance: {fileID: 1400984717}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1167485839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -356,14 +367,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1947377826}
     m_Modifications:
-    - target: {fileID: 6271029864091072873, guid: 15cb0cec5203c4b41b2744868c47a781, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6271029864091072873, guid: 15cb0cec5203c4b41b2744868c47a781, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6271029864100448981, guid: 15cb0cec5203c4b41b2744868c47a781, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -374,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6271029864100615861, guid: 15cb0cec5203c4b41b2744868c47a781, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6271029864100615861, guid: 15cb0cec5203c4b41b2744868c47a781, type: 3}
       propertyPath: m_LocalPosition.x
@@ -459,6 +462,14 @@ PrefabInstance:
       propertyPath: m_Text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1651236464881277891, guid: c40386b403410aa438194a0dc8559bcb, type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651236464881277891, guid: c40386b403410aa438194a0dc8559bcb, type: 3}
+      propertyPath: m_FontData.m_RichText
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3154425824297839597, guid: c40386b403410aa438194a0dc8559bcb, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -511,8 +522,27 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8432200934790289958, guid: c40386b403410aa438194a0dc8559bcb, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8432200934790289958, guid: c40386b403410aa438194a0dc8559bcb, type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c40386b403410aa438194a0dc8559bcb, type: 3}
+--- !u!114 &1311973538 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8432200934790289958, guid: c40386b403410aa438194a0dc8559bcb, type: 3}
+  m_PrefabInstance: {fileID: 1311973537}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1316447515
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,7 +575,7 @@ Transform:
   - {fileID: 898735529}
   - {fileID: 1894719324}
   m_Father: {fileID: 1947377826}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1316447517
 MonoBehaviour:
@@ -561,7 +591,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 6271029864100448981, guid: 15cb0cec5203c4b41b2744868c47a781, type: 3}
   stopTurn: 0
-  waves: 1
+  waves: 0
+  dejavuController: {fileID: 2081795288}
 --- !u!1 &1318453146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,8 +1121,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1506910353}
-  - {fileID: 1810037509}
   - {fileID: 1316447516}
+  - {fileID: 1810037509}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1157,6 +1188,26 @@ MonoBehaviour:
   _combatUI: {fileID: 1702512135}
   text: {fileID: 1167670649}
   Inputs: {fileID: 709706393}
+--- !u!114 &2081795288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081795285}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22d0723d45b633443a20c07b6f5d6188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogueContainer: {fileID: 11400000, guid: dacd0816bc3635148b1b302c6b7a97df, type: 2}
+  _combatUI: {fileID: 1702512135}
+  text: {fileID: 1167670649}
+  options: {fileID: 1311973538}
+  spawnerController: {fileID: 1316447517}
+  Inputs: {fileID: 709706393}
+  buffMultipliers: {x: 0.5, y: 1, z: 2}
+  chanceForEnemyGains: 0.9
 --- !u!1 &2114283753834967212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,6 +1477,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1435663701}
     m_Modifications:
+    - target: {fileID: 45587392134966913, guid: c7e2afd5637513345905cf6c50cf3c2f, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 900537950}
+    - target: {fileID: 45587392134966913, guid: c7e2afd5637513345905cf6c50cf3c2f, type: 3}
+      propertyPath: _inputs
+      value: 
+      objectReference: {fileID: 709706393}
+    - target: {fileID: 45587392134966913, guid: c7e2afd5637513345905cf6c50cf3c2f, type: 3}
+      propertyPath: combatUI
+      value: 
+      objectReference: {fileID: 1702512135}
+    - target: {fileID: 45587392134966913, guid: c7e2afd5637513345905cf6c50cf3c2f, type: 3}
+      propertyPath: dejavuCanvas
+      value: 
+      objectReference: {fileID: 2081795285}
+    - target: {fileID: 45587392134966913, guid: c7e2afd5637513345905cf6c50cf3c2f, type: 3}
+      propertyPath: dejavuController
+      value: 
+      objectReference: {fileID: 2081795288}
+    - target: {fileID: 5560690589473203991, guid: c7e2afd5637513345905cf6c50cf3c2f, type: 3}
+      propertyPath: m_Radius
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6237388201916180540, guid: c7e2afd5637513345905cf6c50cf3c2f, type: 3}
       propertyPath: m_RootOrder
       value: 0
