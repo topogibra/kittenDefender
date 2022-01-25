@@ -16,6 +16,8 @@ public class Target : MonoBehaviour {
 
   public UnityEvent getHitAnimation, dieAnimation;
 
+  public GameObject loseScreen;
+
 
   private void Start() {
     if (updateMaxHealth != null) updateMaxHealth.Invoke(maxHealth);
@@ -37,6 +39,14 @@ public class Target : MonoBehaviour {
 
   private void Update() {
     if (health <= 0) {
+      if (loseScreen != null) {
+        loseScreen.SetActive(true);
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+      Application.Quit(); 
+#endif
+      }
       die();
     }
   }

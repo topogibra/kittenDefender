@@ -79,6 +79,7 @@ public class DejavuController : MonoBehaviour {
       gameObject.SetActive(false);
       // buff enemies
       spawnerController.applyBuffs(_buffSize, _buffType, _applyToEnemies > 0);
+      spawnerController.waves = 1;
       this.reset();
       Inputs.InteractiveButtonInput(false);
     } else if (choice >= 0) {
